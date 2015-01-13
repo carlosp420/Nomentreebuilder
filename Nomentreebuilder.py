@@ -43,20 +43,21 @@ def colreader(n):
 	return purgedtaxonlist, parentmap
 	ifile.close()
 
+
 # Define function to select nodes with a given number of leaves, size
 def search_by_size(node, size):
-     matches = []
-     for n in node.traverse("preorder"):
+    matches = []
+    for n in node.traverse("preorder"):
         if len(n) == size:
-           matches.append(n)       
-     # return the matches            
-     return matches
+            matches.append(n)
+    # return the matches
+    return matches
 
 
 # Create an empty tree to populate
 t = Tree()
 taxonmap = {}
-	
+
 # Count number of columns in the csv file based on the first row
 with open('/Users/cdoorenweerd/Desktop/systematictree/Benthos_datasetred.csv','rU') as f:
     reader = csv.reader(f, delimiter=',', skipinitialspace=True)
